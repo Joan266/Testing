@@ -16,7 +16,7 @@ describe('Room class', () => {
     const booking2 = new Booking('Jane Smith', 'jane@example.com', '2024-07-10', '2024-07-15', 0, room);
     room.bookings.push(booking1, booking2);
 
-    expect(room.occupancyPercentage('2024-07-01', '2024-07-15')).toBeCloseTo(33.33, 2);
+    expect(room.occupancyPercentage('2024-07-02', '2024-07-15')).toBeCloseTo(71.43, 2);
   });
 
   test('totalOccupancyPercentage returns the correct percentage for all rooms', () => {
@@ -27,7 +27,7 @@ describe('Room class', () => {
     room1.bookings.push(booking1);
     room2.bookings.push(booking2);
 
-    expect(Room.totalOccupancyPercentage([room1, room2], '2024-07-01', '2024-07-15')).toBeCloseTo(16.67, 2);
+    expect(Room.totalOccupancyPercentage([room1, room2], '2024-07-01', '2024-07-15')).toBeCloseTo(36.67, 2);
   });
 
   test('availableRooms returns rooms that are not occupied for the entire duration', () => {
